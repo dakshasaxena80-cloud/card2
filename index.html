@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Mitali!</title>
+
+  <!-- Animate.css for animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ❤️ Falling Hearts Background -->
+  <div class="hearts-container"></div>
+
+  <!-- 🎉 Birthday Greeting Card -->
+  <div class="card animate__animated animate__bounceIn">
+    <h1>🎉 Happy Birthday Mitu!! 🎂</h1>
+    <p>Wishing you a day filled with laughter and joy!</p>
+    <p>Hope all your wishes comees true my princess</p> 
+    <p>Aur tujhe kya lgga i won't be giving any surprises?</p>
+    <p>Tera bday ho aur meh kuchh du na? It's not possible miitu.</p>
+    <p>Ik my gift is not expensive as others but koi na...</p>
+    <p>Iss gareeb pr mehrbani hi krde 😅 I'm sorry for that!</p>
+    <p>Press the button below to know more 💝</p>
+    <button class="btn" onclick="showPopup('popup1')">Click for a Surprise!</button>
+  </div>
+
+  <!-- 🎁 Popup 1 -->
+  <div class="popup" id="popup1">
+    <h2 class="animate__animated animate__fadeInDown">Surprise #1!</h2>
+    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80" alt="Birthday">
+    <p class="animate__animated animate__fadeInUp">You're truly one of a kind! 💖</p>
+    <button class="btn" onclick="nextPopup('popup1', 'popup2')">Next</button>
+  </div>
+
+  <!-- 🎁 Popup 2 -->
+  <div class="popup" id="popup2">
+    <h2 class="animate__animated animate__fadeInDown">Surprise #2!</h2>
+    <img src="https://images.unsplash.com/photo-1604537529428-15e3dbe44d67?auto=format&fit=crop&w=400&q=80" alt="Cake">
+    <p class="animate__animated animate__fadeInUp">May your cake be sweet and your smiles even sweeter! 🎂</p>
+    <button class="btn" onclick="nextPopup('popup2', 'popup3')">Next</button>
+  </div>
+
+  <!-- 🎁 Popup 3 -->
+  <div class="popup" id="popup3">
+    <h2 class="animate__animated animate__fadeInDown">Surprise #3!</h2>
+    <img src="https://images.unsplash.com/photo-1543722530-d2c3201371e8?auto=format&fit=crop&w=400&q=80" alt="Confetti">
+    <p class="animate__animated animate__fadeInUp">Hope your day is filled with magic and joy! ✨</p>
+    <button class="btn" onclick="nextPopup('popup3', 'popup4')">Next</button>
+  </div>
+
+  <!-- 🎁 Popup 4 -->
+  <div class="popup" id="popup4">
+    <h2 class="animate__animated animate__fadeInDown">Final Surprise!</h2>
+    <img src="https://images.unsplash.com/photo-1606788075763-0d74b3a162b5?auto=format&fit=crop&w=400&q=80" alt="Fireworks">
+    <p class="animate__animated animate__fadeInUp">Wishing you a year full of happiness, health, and love! 🎇</p>
+    <button class="btn" onclick="nextPopup('popup4', 'popup5')">One Last Surprise!</button>
+  </div>
+
+  <!-- 🎥 Popup 5 (Video) -->
+  <div class="popup" id="popup5">
+    <h2 class="animate__animated animate__fadeInDown">Special Video Message! 🎥</h2>
+  <div class="video-container animate__animated animate__fadeInUp">
+  <video controls autoplay muted>
+    <source src="birthday-video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+    <p>Enjoy this little video surprise just for you 💌</p>
+    <button class="btn" onclick="closePopup('popup5')">Close</button>
+  </div>
+
+  <!-- 💻 JavaScript -->
+  <script>
+    // Popup Functions
+    function showPopup(id) {
+      document.getElementById(id).style.display = 'block';
+    }
+
+    function closePopup(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+
+    function nextPopup(currentId, nextId) {
+      document.getElementById(currentId).style.display = 'none';
+      document.getElementById(nextId).style.display = 'block';
+    }
+
+    // Falling Hearts Animation
+    const container = document.querySelector('.hearts-container');
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerText = '💖';
+
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = 2 + Math.random() * 3 + 's';
+      heart.style.opacity = Math.random();
+      heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+
+      container.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    setInterval(createHeart, 300);
+  </script>
+
+</body>
+</html>
